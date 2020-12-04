@@ -6,7 +6,7 @@
 	Date:		December 03, 2020
 	file:		binarynumber.h
 
-	Version:	1.0.0.1
+	Version:	1.0.0.2
 */
 
 
@@ -17,7 +17,7 @@
 #include <string_view>
 #include <ostream>
 
-constexpr std::string_view LIB_BIN_STR_VERSION("1.0.0.1");
+constexpr std::string_view LIB_BIN_STR_VERSION("1.0.0.2");
 
 /// <summary>
 /// converts decimal to binary and vice-versa

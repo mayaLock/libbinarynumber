@@ -6,7 +6,7 @@
 	Date:		December 03, 2020
 	file:		BinaryNumber.cpp
 
-	Version:	1.0.0.1
+	Version:	1.0.0.2
 */
 
 #include <algorithm>
@@ -24,7 +24,7 @@ BinaryNumber::BinaryNumber(long long decNum)
 }
 
 BinaryNumber::BinaryNumber(std::string_view binStr)
-	: m_numBinaryStr(binStr), m_numDecimal(0ULL), m_isStrContor(true)
+	: m_numBinaryStr(binStr), m_numDecimal(0LL), m_isStrContor(true)
 {
 	this->processBinaryString();
 }
@@ -34,9 +34,9 @@ BinaryNumber::BinaryNumber(BinaryNumber&& src) noexcept
 	this->m_isStrContor = src.m_isStrContor;
 	src.m_isStrContor = false;
 	this->m_numBinaryStr = std::move(src.m_numBinaryStr);
+	src.m_numBinaryStr.push_back('0');
 	this->m_numDecimal = src.m_numDecimal;
 	src.m_numDecimal = 0LL;
-	src.processDecimalNumber();
 }
 
 BinaryNumber& BinaryNumber::operator=(BinaryNumber&& other) noexcept
@@ -46,9 +46,9 @@ BinaryNumber& BinaryNumber::operator=(BinaryNumber&& other) noexcept
 		this->m_isStrContor = other.m_isStrContor;
 		other.m_isStrContor = false;
 		this->m_numBinaryStr = std::move(other.m_numBinaryStr);
+		other.m_numBinaryStr.push_back('0');
 		this->m_numDecimal = other.m_numDecimal;
 		other.m_numDecimal = 0LL;
-		other.processDecimalNumber();
 	}
 	return *this;
 }
